@@ -18,13 +18,13 @@ def compute_rst(matrix):
     ]
 
     # Compute r vector
-    r = np.array([0.5 * np.trace(matrix @ np.kron(sigma_j, I)).real for sigma_j in sigma])
+    r = np.array([ np.trace(matrix @ np.kron(sigma_j, I)).real for sigma_j in sigma])
 
     # Compute s vector
-    s = np.array([0.5 * np.trace(matrix @ np.kron(I, sigma_k)).real for sigma_k in sigma])
+    s = np.array([np.trace(matrix @ np.kron(I, sigma_k)).real for sigma_k in sigma])
 
     # Compute T matrix
-    T = np.array([[0.25 * np.trace(matrix @ np.kron(sigma[j], sigma[k])).real for k in range(3)] for j in range(3)])
+    T = np.array([[np.trace(matrix @ np.kron(sigma[j], sigma[k])).real for k in range(3)] for j in range(3)])
 
     return r, s, T
 
